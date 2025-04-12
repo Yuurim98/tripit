@@ -1,5 +1,6 @@
 package com.tripit.tripit_backend.travel.infra.entity;
 
+import com.tripit.tripit_backend.common.entity.BaseEntity;
 import com.tripit.tripit_backend.user.infra.entity.UserEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +18,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "trips_entity")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class TripsEntity {
+public class TripEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +30,7 @@ public class TripsEntity {
     private UserEntity user;
 
     @OneToMany(mappedBy = "trips", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItinerariesEntity> itinerariesEntities = new ArrayList<>();
+    private List<ItineraryEntity> itineraries = new ArrayList<>();
 
     private int areaCode;
 
