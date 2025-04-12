@@ -1,5 +1,8 @@
 package com.tripit.tripit_backend.common.response;
 
+import lombok.Getter;
+
+@Getter
 public class ApiResponse<T> {
 
     private boolean success;   // 성공 여부
@@ -12,8 +15,8 @@ public class ApiResponse<T> {
         this.message = message;
     }
 
-    public static <T> ApiResponse<T> success(T data, String message) {
-        return new ApiResponse<>(true, data, message);
+    public static <T> ApiResponse<T> success(T data) {
+        return new ApiResponse<>(true, data, null);
     }
 
     public static <T> ApiResponse<T> fail(String message) {

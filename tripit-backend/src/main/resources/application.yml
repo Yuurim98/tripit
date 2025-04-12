@@ -14,6 +14,11 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-  sql:
-    init:
-      mode: always
+
+travel-api:
+  base-url: https://apis.data.go.kr/B551011/KorService1
+  service-key: ${TRAVEL_API_KEY}
+  mobile-os: ETC
+  mobile-app: MyApp
+  type: json
+
