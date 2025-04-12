@@ -13,7 +13,7 @@ public class TripRepositoryImpl implements TripRepository {
     private final TripJpaRepository repository;
 
     @Override
-    public List<TripEntity> findAllByUserId(Long userId) {
-        return repository.findAllByUserId(userId);
+    public List<TripEntity> findAllByUserIdAndDeletedAtIsNull(Long userId) {
+        return repository.findAllByUserIdAndDeletedAtIsNull(userId);
     }
 }

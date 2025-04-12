@@ -15,7 +15,7 @@ public class TripService {
 
     public List<TripResDto> getTripList(Long userId) {
 
-        List<TripEntity> entities = repository.findAllByUserId(userId);
+        List<TripEntity> entities = repository.findAllByUserIdAndDeletedAtIsNull(userId);
         return entities.stream()
             .map(TripResDto::from)
             .toList();

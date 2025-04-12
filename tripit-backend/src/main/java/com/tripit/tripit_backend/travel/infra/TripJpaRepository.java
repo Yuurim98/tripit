@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TripJpaRepository extends JpaRepository<TripEntity, Long> {
 
-    List<TripEntity> findAllByUserId(Long userId);
+    List<TripEntity> findAllByUserIdAndDeletedAtIsNull(Long userId);
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface TripRepository {
 
-    List<TripEntity> findAllByUserId(Long userId);
+    List<TripEntity> findAllByUserIdAndDeletedAtIsNull(Long userId);
 
 
 }
