@@ -29,7 +29,7 @@ public class TripEntity extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity user;
 
-    @OneToMany(mappedBy = "trips", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItineraryEntity> itineraries = new ArrayList<>();
 
     private int areaCode;

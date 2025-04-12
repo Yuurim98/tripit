@@ -1,5 +1,6 @@
 package com.tripit.tripit_backend.meetup.infra.entity;
 
+import com.tripit.tripit_backend.common.entity.BaseEntity;
 import com.tripit.tripit_backend.user.infra.entity.UserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ParticipantsEntity {
+public class ParticipantsEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
