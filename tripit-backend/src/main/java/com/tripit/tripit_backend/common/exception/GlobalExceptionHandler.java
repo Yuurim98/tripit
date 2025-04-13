@@ -1,6 +1,7 @@
 package com.tripit.tripit_backend.common.exception;
 
 import com.tripit.tripit_backend.common.response.ApiResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomException.class)
@@ -30,6 +32,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Object>> handleGeneralException(Exception e) {
+        log.error("서버 오류 {}", e.getMessage());
         return ResponseEntity.internalServerError()
             .body(ApiResponse.fail("서버 내부 오류가 발생했습니다."));
     }

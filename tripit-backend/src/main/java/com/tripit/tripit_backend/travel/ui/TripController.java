@@ -2,11 +2,13 @@ package com.tripit.tripit_backend.travel.ui;
 
 import com.tripit.tripit_backend.common.response.ApiResponse;
 import com.tripit.tripit_backend.travel.application.service.TripService;
+import com.tripit.tripit_backend.travel.ui.dto.response.ItineraryResDto;
 import com.tripit.tripit_backend.travel.ui.dto.response.TripResDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +22,11 @@ public class TripController {
     @GetMapping("")
     public ResponseEntity<ApiResponse<List<TripResDto>>> getTripList() {
         return ResponseEntity.ok(ApiResponse.success(service.getTripList(1L)));
+    }
+
+    @GetMapping("/{tripId}")
+    public ResponseEntity<ApiResponse<List<ItineraryResDto>>> getTripDetails(@PathVariable Long tripId) {
+        return ResponseEntity.ok(ApiResponse.success(service.getTripDetails(tripId)));
     }
 
 }

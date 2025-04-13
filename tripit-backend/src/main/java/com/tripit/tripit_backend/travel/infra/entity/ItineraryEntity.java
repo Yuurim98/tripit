@@ -14,10 +14,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "itineraries_entity")
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ItineraryEntity extends BaseEntity {
 
