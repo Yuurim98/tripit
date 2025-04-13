@@ -9,11 +9,12 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
+    show-sql: true
     properties:
       hibernate:
-        show_sql: true
         format_sql: true
+
 
 travel-api:
   base-url: https://apis.data.go.kr/B551011/KorService1

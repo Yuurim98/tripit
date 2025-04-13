@@ -1,6 +1,7 @@
 package com.tripit.tripit_backend.meetup.infra.entity;
 
-import com.tripit.tripit_backend.travel.infra.entity.TripsEntity;
+import com.tripit.tripit_backend.common.entity.BaseEntity;
+import com.tripit.tripit_backend.travel.infra.entity.TripEntity;
 import com.tripit.tripit_backend.user.infra.entity.UserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -14,14 +15,14 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MeetupPostEntity {
+public class MeetupPostEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private TripsEntity trips;
+    private TripEntity trips;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity user;
